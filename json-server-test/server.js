@@ -72,6 +72,6 @@ server.use((req, res, next) => {
 server.use(router);
 
 server.listen(4545, () => {
-	console.log('JSON Server is running on port 3000');
+	console.log('JSON Server is running on port 4545');
 });
 
