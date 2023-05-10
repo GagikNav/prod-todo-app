@@ -1,12 +1,8 @@
-import axios from "axios";
-import baseURL from "../../../../api/url";
 import { useQuery } from "@tanstack/react-query";
+import axiosInstance from "../../../../api/axiosinstance";
 
 async function getTodos() {
-  const data = await axios({
-    method: "get",
-    url: baseURL + "/todos/",
-  });
+  const data = axiosInstance.get("/todos/");
   return data;
 }
 

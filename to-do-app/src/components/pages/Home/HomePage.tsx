@@ -1,10 +1,13 @@
 import Header from "../../common/Header";
 import useGetTodos from "./hooks/useGetTodos";
+import useAuthentication from "./hooks/useAuthentication";
 
-const Home = () => {
+
+const HomePage = () => {
+    useAuthentication()
     const getTodos = useGetTodos();
     let {isLoading, isError, data, error}= getTodos;
-
+    let res = data?.data;
     return ( 
     <>
     <Header/>
@@ -13,13 +16,13 @@ const Home = () => {
             To do:
         </h4>
         <form>
-            {!!data && Array.isArray(data) ? data?.map((todo) => <div>
+            {!!res && Array.isArray(res) ? res?.map((todo) => <div>
             <input type="checkbox" key={todo.id} value={todo.title} id={todo.id}/>
-            <label htmlFor={todo.id} className="m-1">Grab laundry</label>
+            <label htmlFor={todo.id} className="m-1">{todo.title}</label>
             </div>): null} 
         </form>
     </div>
     </> );
 }
  
-export default Home;
+export default HomePage;
