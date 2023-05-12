@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../../../api/axiosinstance";
 
 async function getTodos() {
-  const data = axiosInstance.get("/todos/");
+  const data = axiosInstance.get("todos/");
   return data;
 }
 
