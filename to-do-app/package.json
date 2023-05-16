@@ -12,11 +12,14 @@
     "cypress": "npx cypress open"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@tanstack/react-query": "^4.29.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",

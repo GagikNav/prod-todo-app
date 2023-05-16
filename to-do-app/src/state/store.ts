@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { ToDo, ToDoState } from "../interfaces/interfaces";
+import { ToDoState, ToDoWithId } from "../interfaces/interfaces";
 
 const useStore = create<ToDoState>((set) => ({
   todos: [],
@@ -10,7 +10,7 @@ const useStore = create<ToDoState>((set) => ({
         {
           completed: false,
           title: description,
-        } as ToDo,
+        } as ToDoWithId,
       ],
     }));
   },
@@ -21,7 +21,7 @@ const useStore = create<ToDoState>((set) => ({
     set((state) => ({
       todos: state.todos.map((todo) => {
         return todo.id === id
-          ? ({ ...todo, completed: !todo.completed } as ToDo)
+          ? ({ ...todo, completed: !todo.completed } as ToDoWithId)
           : todo;
       }),
     }));
