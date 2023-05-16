@@ -9,7 +9,8 @@ export interface ToDoWithId extends ToDo {
 
 export interface ToDoState {
   todos: ToDoWithId[];
-  addToDo: (description: string) => void;
+  initializeToDos: (incomingToDos: ToDoWithId[]) => void;
+  // addToDo: (description: string) => void;
   removeToDo: (id: number) => void;
   changeCompletedStatus: (id: number) => void;
 }

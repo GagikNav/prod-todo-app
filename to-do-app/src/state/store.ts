@@ -3,17 +3,22 @@ import { ToDoState, ToDoWithId } from "../interfaces/interfaces";
 
 const useStore = create<ToDoState>((set) => ({
   todos: [],
-  addToDo: (description: string) => {
-    set((state) => ({
-      todos: [
-        ...state.todos,
-        {
-          completed: false,
-          title: description,
-        } as ToDoWithId,
-      ],
+  initializeToDos: (incomingToDos: ToDoWithId[]) => {
+    set(() => ({
+      todos: incomingToDos,
     }));
   },
+  // addToDo: (description: string) => {
+  //   set((state) => ({
+  //     todos: [
+  //       ...state.todos,
+  //       {
+  //         completed: false,
+  //         title: description,
+  //       } as ToDoWithId,
+  //     ],
+  //   }));
+  // },
   removeToDo: (id: number) => {
     set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) }));
   },
