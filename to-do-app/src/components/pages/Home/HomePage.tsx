@@ -2,6 +2,7 @@ import Header from "../../common/Header";
 import useGetTodos from "./hooks/useGetTodos";
 import useAuthentication from "./hooks/useAuthentication";
 import { InputHTMLAttributes, MouseEvent, useEffect, useRef } from "react";
+// import { ToDo, ToDoWithId } from "../../../interfaces/interfaces";
 import { useMutation } from "@tanstack/react-query";
 import axiosInstance from "../../../api/axiosinstance";
 import { ToDo, ToDoWithId } from "../../../interfaces/interfaces";
@@ -81,9 +82,9 @@ const HomePage = () => {
             let newCompleted = e.currentTarget.checked;
             let title = e.currentTarget.value;
             let id = e.currentTarget.id;
-            let body = {id: parseInt(id),completed: newCompleted,title: title};
+            let body = {id: parseInt(id),completed: newCompleted,title: title}; 
             console.log(body)
-            toggleCheckboxMutation.mutateAsync(body).then(async() => {
+            toggleCheckboxMutation.mutateAsync(body as ToDoWithId).then(async() => {
                 let todos = await getToDosMutation.mutateAsync()
                 initializeToDoStore(todos.data)
             })
