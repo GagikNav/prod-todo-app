@@ -1,7 +1,7 @@
 import Header from "../../common/Header";
 import useGetTodos from "./hooks/useGetTodos";
 import useAuthentication from "./hooks/useAuthentication";
-import { InputHTMLAttributes, MouseEvent, useEffect, useRef } from "react";
+import {useEffect, useRef } from "react";
 // import { ToDo, ToDoWithId } from "../../../interfaces/interfaces";
 import { useMutation } from "@tanstack/react-query";
 import axiosInstance from "../../../api/axiosinstance";
@@ -11,9 +11,7 @@ import useStore from "../../../state/store";
 
 const HomePage = () => {
     let toDos = useStore((state) => state.todos);
-    // const addToDoStore = useStore((state) => state.addToDo);
     const removeToDoStore = useStore((state) => state.removeToDo);
-    const toggleToDoStore = useStore((state) => state.changeCompletedStatus);
     const initializeToDoStore = useStore((state) => state.initializeToDos);
     useAuthentication()
     const getTodos = useGetTodos();
@@ -76,7 +74,7 @@ const HomePage = () => {
         }
     }
 
-    function handleCheckbox(e: React.MouseEvent): void {
+    function handleCheckbox(e: React.ChangeEvent): void {
         e.preventDefault();
         if('checked' in e.currentTarget && 'value' in e.currentTarget){
             let newCompleted = e.currentTarget.checked;
@@ -99,11 +97,15 @@ const HomePage = () => {
             To do:
         </h4>
         <form className="flex flex-col items-center justify-center">
+            <div className="todos flex flex-col items-center justify-center">
             {!!toDos ? toDos?.map((todo) => 
-            <div key={todo.id} >
-                <input type="checkbox" value={todo.title} id={todo.id.toString()} checked={todo.completed} onChange={e => handleCheckbox(e)}/>
+            <div className="todo" key={todo.id} >
+                <input type="checkbox" value={todo.title} id={todo.id.toString()} checked={todo.completed} onChange={(e) => handleCheckbox(e)}/>
                 <label htmlFor={todo.id.toString()} className="m-1">{todo.title}</label>
-                <button name={todo.id.toString()} type="submit" className="mx-5" onClick={(e) => handleDeleteToDo(e)}><FontAwesomeIcon icon="trash-can"/></button></div>): null} 
+                <button name={todo.id.toString()} type="submit" className="trash-icon mx-5" onClick={(e) => handleDeleteToDo(e)}><FontAwesomeIcon icon="trash-can"/></button>
+                </div>): null}
+</div>
+
                 <label htmlFor="add-todo" className="mt-5">Add another to do:</label>
                 <input type="text" id="add-todo" name="add-todo" className="border-slate-200 border-2" ref={addToDoRef}/>
                 <button type="submit" className="bg-gray-100 px-5 py-2 mt-4 rounded-md" onClick={(e) => handleAddToDo(e)}>Add</button>

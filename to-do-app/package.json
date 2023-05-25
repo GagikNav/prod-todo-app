@@ -9,7 +9,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "vitest": "vitest run",
-    "cypress": "npx cypress open"
+    "slay": "npx cypress open"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
