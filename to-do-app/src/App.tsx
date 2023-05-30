@@ -6,10 +6,11 @@ import { Outlet } from 'react-router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faB } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const queryClient = new QueryClient()
-  library.add(faB, faTrashCan)
+  library.add(faB, faTrashCan, faPenToSquare)
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet/>
