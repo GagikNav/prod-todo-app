@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = process.env.NETLIFY ? "https://json-server-todo-6885f432f23b.herokuapp.com/" : "http://localhost:4545/"
-console.log(process.env.NETLIFY)
+const baseURL = process.env.NETLIFY_LOCAL ? "https://json-server-todo-6885f432f23b.herokuapp.com/" : "http://localhost:4545/"
+console.log(process.env.NETLIFY_LOCAL)
 console.log(baseURL)
 
 
