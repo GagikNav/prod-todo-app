@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "types": [
-      "jest",
+      // "jest",
       "cypress"
     ],
     "lib": [
@@ -14,6 +14,8 @@
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
@@ -26,7 +28,7 @@
     "noFallthroughCasesInSwitch": true,
   },
   "include": [
-    "./src"
+    "./src",
   ],
   "references": [
     {
