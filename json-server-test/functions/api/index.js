@@ -5,9 +5,9 @@ const middlewares = jsonServer.defaults();
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const express = require('express');
+const serverless=require('serverless-http')
 
 const SECRET_KEY = 'your-secret-key';
-
 server.use(bodyParser.json());
 server.use(middlewares);
 
@@ -69,10 +69,20 @@ server.use((req, res, next) => {
 	}
 });
 
-server.use("/.netlify/functions/api",router);
+server.use("/",router);
 
-// server.listen(4545, () => {
-// 	console.log('JSON Server is running on port 4545');
-// });
+server.listen(4545, () => {
+	console.log('JSON Server is running on port 4545');
+});
 
-export default server
+export const handler = serverless(server);
+// exports.handler = async (event, context) => {
+// 	return {
+// 		statusCode: 200,
+// 		body: 'Someone is going to suffer if this text will not be visible',
+// 		headers: {
+// 			'Content-Type': 'application/json; charset=utf-8',
+// 			'Access-Control-Allow-Origin': '*',
+// 		},
+// 	}
+// }
