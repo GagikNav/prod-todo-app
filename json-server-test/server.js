@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const express = require('express');
 
 const SECRET_KEY = 'your-secret-key';
+const port = process.env.PORT || 4545
 
 server.use(bodyParser.json());
 server.use(middlewares);
@@ -71,6 +72,6 @@ server.use((req, res, next) => {
 
 server.use("/.netlify/functions/api",router);
 
-server.listen(4545, () => {
+server.listen(port, () => {
 	console.log('JSON Server is running on port 4545');
 });

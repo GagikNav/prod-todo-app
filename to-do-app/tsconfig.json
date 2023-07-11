@@ -3,7 +3,8 @@
     "target": "ESNext",
     "types": [
       // "jest",
-      "cypress"
+      "cypress",
+      "node"
     ],
     "lib": [
       "DOM",
