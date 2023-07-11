@@ -1,2 +1,2 @@
 [build]
-command = "npm run build && node ./src/api/axiosInstance.ts"
+command = "npm run build && ts-node --esm ./src/api/axiosInstance.ts"
