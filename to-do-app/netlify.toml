@@ -1,4 +1,2 @@
-[build]
-command="npm run build && ts-node --esm ./src/api/axiosinstance.ts"
 [context.production]
 environment={NETLIFY_LOCAL='true'}
