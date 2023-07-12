@@ -73,5 +73,5 @@ server.use((req, res, next) => {
 server.use("/.netlify/functions/api",router);
 
 server.listen(port, () => {
-	console.log('JSON Server is running on port 4545');
+	console.log('JSON Server is running on port '+port);
 });
