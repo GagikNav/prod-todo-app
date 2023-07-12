@@ -1,2 +1,2 @@
 [context.production]
-environment={NETLIFY_LOCAL='true'}
+environment={NEXT_PUBLIC_NETLIFY_LOCAL='true'}
