@@ -1,1 +1,9 @@
-{}
+{
+    "todos": [
+      {
+        "title": "Buy groceries",
+        "completed": false,
+        "id": 1
+      }
+    ]
+  }
