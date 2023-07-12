@@ -4,6 +4,11 @@
         "title": "Buy groceries",
         "completed": false,
         "id": 1
+      },
+      {
+        "title": "Add entry in database to push to the goddamned branch",
+        "completed": false,
+        "id": 2
       }
     ]
   }
